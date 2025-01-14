@@ -1,5 +1,9 @@
-import React from "react";
+import React from 'react'
 
-export const Edit = () => {
-	return <div>Edit</div>;
-};
+const Edit = () => {
+  return (
+	<div>Edit</div>
+  )
+}
+
+export default Edit
