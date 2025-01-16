@@ -17,6 +17,8 @@ export default {
 					lighterTextColor: "hsl(233, 11%, 84%)",
 					darkerTextColor: "hsl(236, 9%, 61%)",
 					fontColor: "hsl(235, 19%, 35%)",
+					"gradient-color":
+					"linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%))",
 				},
 				dark: {
 					backgroundColor: "hsl(235, 21%, 11%)",
@@ -26,6 +28,8 @@ export default {
 					darkerTextColor: "hsl(234, 11%, 52%)",
 					veryDarkGrayishBlue1: "hsl(233, 14%, 35%)",
 					veryDarkGrayishBlue2: "hsl(237, 14%, 26%)",
+					"gradient-color":
+					"linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%))",
 				},
 			},
 		},
