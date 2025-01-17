@@ -1,17 +1,16 @@
-import React from 'react'
-import Todo from './Todo'
-import Edit from './Edit'
+import React from "react";
+import Todo from "./Todo";
+import Edit from "./Edit";
 const TodoList = () => {
-  return (
-	<div className='bg-bg2 rounded-md flex flex-col justify-center'>
-    <Todo/>
-    <Todo/>
-    <Todo/>
-    <Todo/>
-    <Todo/>
-    <Edit />
-  </div>
-  )
-}
+	return (
+		<div className="bg-bg2 rounded-md flex flex-col shadow-2xl min-h-[200px] ">
+			<Todo />
 
-export default TodoList
+			<div className="h-full w-full ">
+				<Edit />
+			</div>
+		</div>
+	);
+};
+
+export default TodoList;
