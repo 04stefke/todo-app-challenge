@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dark {
+	--bg: 235, 21%, 11%;
+	--bg2: 235, 24%, 19%;
+	--fontColor: 234, 39%, 85%;
+	--textHover: 236, 33%, 92%;
+	--darkerFC: 234, 11%, 52%;
+	--lightGray: 236, 33%, 92%;
+}
+
+.light {
+	--bg: 0, 0%, 98%;
+	--bg2: 0, 0%, 98%;
+	--fontColor: 235, 19%, 35%;
+	--textHover: 236, 9%, 61%;
+	--darkerFC: 236, 9%, 61%;
+	--lightGray: 236, 33%, 92%;
+}
+
+.active-btn {
+    @apply text-brightBlue
+}
