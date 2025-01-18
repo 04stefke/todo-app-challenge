@@ -18,21 +18,12 @@ export default {
 				textHover: "hsl(var(--textHover))",
 				darkerFC: "hsl(var(--darkerFC))",
 				lightGray: "hsl(var(--lightGray))",
-				// dark: {
-				// 	backgroundColor: "hsl(235, 21%, 11%)",
-				// 	backgroundColor2: "hsl(235, 24%, 19%)",
-				// 	lighterTextColor: "hsl(234, 39%, 85%)",
-				// 	lightGrayishBlueHover: "hsl(236, 33%, 92%)",
-				// 	darkerTextColor: "hsl(234, 11%, 52%)",
-				// },
-				// light: {
-				// 	backgroundColor: "hsl(0, 0%, 98%)",
-				// 	lightGrayishBlueHover: "hsl(236, 33%, 92%)",
-				// 	lighterTextColor: "hsl(233, 11%, 84%)",
-				// 	darkerTextColor: "hsl(236, 9%, 61%)",
-				// 	fontColor: "hsl(235, 19%, 35%)",
-				// },
+				borderB: "hsl(var(--borderB))",
+
 			},
+			fontFamily: {
+				josefin: ['Josefin Sans', 'serif']
+			}
 		},
 	},
 	plugins: [],
