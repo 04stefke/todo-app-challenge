@@ -12,7 +12,7 @@ function App() {
 	return (
 		<section className="h-screen  bg-bg font-josefin">
 			<main className="bg-dark-image h-1/3  flex flex-col items-center  ">
-				<div className="w-1/4 flex flex-col gap-10 relative top-[100px]">
+				<div className="xl:w-1/3 sm:min-w-[500px]  min-w-[250px] flex flex-col gap-10 relative top-[100px]">
 					<div className="flex items-center justify-between w-full">
 						<h1 className="text-fontColor font-bold text-4xl">T O D O</h1>
 						<i
