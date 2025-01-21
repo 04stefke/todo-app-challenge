@@ -6,6 +6,7 @@ uuidv4();
 const TodoWrapper = () => {
 	const [todos, setTodos] = useState([]);
 	const addTodo = (todo) => {
+		if (todo.trim() === "") return;
 		setTodos([
 			...todos,
 			{ id: uuidv4(), task: todo, completed: false, isEditing: false },
@@ -29,6 +30,7 @@ const TodoWrapper = () => {
 		);
 	};
 	const editTask = (task, id) => {
+		if (task.trim() === "") return;
 		setTodos(
 			todos.map((todo) =>
 				todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
