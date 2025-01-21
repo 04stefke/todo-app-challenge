@@ -1,7 +1,6 @@
 import React from "react";
 import cross from "../../public/assets/icon-cross.svg";
-const Todo = ({ task, toggleCompleted }) => {
-	
+const Todo = ({ task, toggleCompleted, deleteTodo }) => {
 	return (
 		<div className="px-4 py-4 border-b border-borderB  text-lightGray  flex items-center justify-between  gap-3 w-full">
 			<div className="flex items-center gap-3">
@@ -19,7 +18,7 @@ const Todo = ({ task, toggleCompleted }) => {
 					{task.task}
 				</p>
 			</div>
-			<img src={cross} alt="" className="justify-self-end cursor-pointer" />
+			<img src={cross} alt="" className="justify-self-end cursor-pointer" onClick={() => deleteTodo(task.id)} />
 		</div>
 	);
 };

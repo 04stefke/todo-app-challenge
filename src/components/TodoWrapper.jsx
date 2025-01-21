@@ -10,20 +10,21 @@ const TodoWrapper = () => {
 			...todos,
 			{ id: uuidv4(), task: todo, completed: false, isEditing: false },
 		]);
-		console.log(todos);
 	};
 	const toggleCompleted = (id) => {
 		setTodos(
-            todos.map((todo) =>
-                todo.id === id? {...todo, completed:!todo.completed } : todo
-            )
-        );
-        console.log(todos);
-	}
+			todos.map((todo) =>
+				todo.id === id ? { ...todo, completed: !todo.completed } : todo
+			)
+		);
+	};
+	const deleteTodo = (id) => {
+		setTodos(todos.filter((todo) => todo.id !== id));
+	};
 	return (
 		<div className="flex flex-col gap-5">
 			<Form addTodo={addTodo} />
-			<TodoList todos={todos} toggleCompleted={toggleCompleted} />
+			<TodoList todos={todos} toggleCompleted={toggleCompleted} deleteTodo={deleteTodo} />
 		</div>
 	);
 };
