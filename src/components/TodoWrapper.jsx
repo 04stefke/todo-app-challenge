@@ -11,12 +11,11 @@ const TodoWrapper = () => {
 			{ id: uuidv4(), task: todo, completed: false, isEditing: false },
 		]);
 		console.log(todos);
-		localStorage.setItem("todos", JSON.stringify(todos)); // Store the todos in localStorage when added or edited
 	};
 	return (
 		<div className="flex flex-col gap-5">
 			<Form addTodo={addTodo} />
-			<TodoList />
+			<TodoList todos={todos} />
 		</div>
 	);
 };
