@@ -39,8 +39,13 @@ const TodoWrapper = () => {
 	};
 
 	const deleteAllTodos = () => {
-		setTodos([])
-	}
+		setTodos([]);
+	};
+
+	const getTotalTasks = () => {
+		return todos.length;
+	};
+
 	return (
 		<div className="flex flex-col gap-5">
 			<Form addTodo={addTodo} />
@@ -51,6 +56,7 @@ const TodoWrapper = () => {
 				editTodo={editTodo}
 				editTask={editTask}
 				deleteAllTodos={deleteAllTodos}
+				getTotalTasks={getTotalTasks}
 			/>
 		</div>
 	);
