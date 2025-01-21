@@ -7,11 +7,11 @@ const EditTodoForm = ({editTodo, task}) => {
         setTodo('')
     }
 	return (
-		<form className="w-full flex items-center  bg-bg2 rounded-md" onSubmit={handleSubmit}>
+		<form className="px-4 py-5 border-b border-borderB  text-lightGray  flex items-center justify-between  gap-3 w-full" onSubmit={handleSubmit}>
 			<div className="w-full bg-transparent flex items-center px-2 ">
 				<input
 					type="text"
-					className="w-full py-4 px-4 outline-none bg-transparent text-lightGray "
+					className="w-full  outline-none bg-transparent text-lightGray "
 					placeholder="Update Task"
 					onChange={(e) => setTodo(e.target.value)}
 					value={todo}
@@ -20,7 +20,7 @@ const EditTodoForm = ({editTodo, task}) => {
 					type="submit  "
 					className=" rounded-full w-7 h-7 border-[1px] border-borderB hover:border-brightBlue flex items-center justify-center"
 				>
-					<i className='bx bx-check text-bg2 text-lg px-2 py-3' ></i>
+					<i className='bx bx-check text-bg2 text-lg hover:text-brightBlue' ></i>
 				</button>
 			</div>
 		</form>

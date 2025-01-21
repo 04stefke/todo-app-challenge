@@ -21,7 +21,7 @@ const Form = ({addTodo}) => {
 					type="submit  "
 					className=" rounded-full w-7 h-7 border-[1px] border-borderB hover:border-brightBlue flex items-center justify-center"
 				>
-					<i className='bx bx-check text-bg2 text-lg px-2 py-3' ></i>
+					<i className='bx bx-check text-bg2 text-lg  hover:text-brightBlue ' ></i>
 				</button>
 			</div>
 		</form>

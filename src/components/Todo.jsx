@@ -9,7 +9,7 @@ const Todo = ({ task, toggleCompleted, deleteTodo, editTodo }) => {
 						task.completed ? "completedTaskTick" : ""
 					}`}
 				>
-					<i className="bx bx-check text-bg2 text-lg px-2 py-3" onClick={() => toggleCompleted(task.id)}></i>
+					<i className="bx bx-check text-bg2 text-lg  hover:text-brightBlue" onClick={() => toggleCompleted(task.id)}></i>
 				</div>
 				<p
 					className={`cursor-pointer ${task.completed ? "completedTask" : ""}`}
