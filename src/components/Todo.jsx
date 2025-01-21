@@ -1,6 +1,7 @@
 import React from "react";
 import cross from "../../public/assets/icon-cross.svg";
-const Todo = ({ task }) => {
+const Todo = ({ task, toggleCompleted }) => {
+	
 	return (
 		<div className="px-4 py-4 border-b border-borderB  text-lightGray  flex items-center justify-between  gap-3 w-full">
 			<div className="flex items-center gap-3">
@@ -13,6 +14,7 @@ const Todo = ({ task }) => {
 				</div>
 				<p
 					className={`cursor-pointer ${task.completed ? "completedTask" : ""}`}
+					onClick={() => toggleCompleted(task.id)}
 				>
 					{task.task}
 				</p>
