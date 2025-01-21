@@ -12,10 +12,18 @@ const TodoWrapper = () => {
 		]);
 		console.log(todos);
 	};
+	const toggleCompleted = (id) => {
+		setTodos(
+            todos.map((todo) =>
+                todo.id === id? {...todo, completed:!todo.completed } : todo
+            )
+        );
+        console.log(todos);
+	}
 	return (
 		<div className="flex flex-col gap-5">
 			<Form addTodo={addTodo} />
-			<TodoList todos={todos} />
+			<TodoList todos={todos} toggleCompleted={toggleCompleted} />
 		</div>
 	);
 };
