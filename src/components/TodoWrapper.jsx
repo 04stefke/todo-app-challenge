@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "./Form";
 import TodoList from "./TodoList";
-
+import {v4 as uuidv4} from 'uuid'
 const TodoWrapper = () => {
+	const [todos, setTodos] = useState([]);
+	const addTodo = (todo) => {
+		setTodos([
+			...todos,
+			{ id: uuidv4(), task: todo, completed: false, isEditing: false },
+		]);
+		console.log(todos);
+		localStorage.setItem("todos", JSON.stringify(todos)); // Store the todos in localStorage when added or edited
+	};
 	return (
 		<div className="flex flex-col gap-5">
-			<Form />
+			<Form addTodo={addTodo} />
 			<TodoList />
 		</div>
 	);
