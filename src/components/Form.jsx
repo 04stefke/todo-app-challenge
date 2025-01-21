@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import check from "/assets/icon-check.svg";
-const Form = () => {
+const Form = ({addTodo}) => {
 	const [todo, setTodo] = useState('')
 	const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(todo)
+        addTodo(todo)
         setTodo('')
     }
 	return (
