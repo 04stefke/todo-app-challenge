@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import check from "/assets/icon-check.svg";
 const Form = () => {
+	const [todo, setTodo] = useState('')
+	const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(todo)
+        setTodo('')
+    }
 	return (
-		<form className="w-full flex items-center  bg-bg2 rounded-md">
+		<form className="w-full flex items-center  bg-bg2 rounded-md" onSubmit={handleSubmit}>
 			<div className="w-full bg-transparent flex items-center px-2 ">
 				<input
 					type="text"
 					className="w-full py-4 px-4 outline-none bg-transparent text-lightGray "
 					placeholder="Create a new todo..."
+					onChange={(e) => setTodo(e.target.value)}
+					value={todo}
 				/>
 				<button
 					type="submit  "
