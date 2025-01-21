@@ -1,13 +1,24 @@
 import React from "react";
 import Todo from "./Todo";
 import Edit from "./Edit";
-const TodoList = ({ todos, toggleCompleted, deleteTodo, editTodo }) => {
+import EditTodoForm from "./EditTodoForm";
+const TodoList = ({ todos, toggleCompleted, deleteTodo, editTodo, editTask }) => {
 	return (
 		<div className="bg-bg2 rounded-md flex flex-col shadow-2xl min-h-[300px] ">
 			<div className="h-full w-full ">
-				{todos.map((todo, index) => (
-					<Todo task={todo} key={index} toggleCompleted={toggleCompleted} deleteTodo={deleteTodo} editTodo={editTodo} />
-				))}
+				{todos.map((todo, index) =>
+					todo.isEditing ? (
+						<EditTodoForm editTodo={editTask} task={todo} key={index} />
+					) : (
+						<Todo
+							task={todo}
+							key={index}
+							toggleCompleted={toggleCompleted}
+							deleteTodo={deleteTodo}
+							editTodo={editTodo}
+						/>
+					)
+				)}
 			</div>
 			<Edit />
 		</div>

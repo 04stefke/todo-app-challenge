@@ -23,15 +23,29 @@ const TodoWrapper = () => {
 	};
 	const editTodo = (id) => {
 		setTodos(
-            todos.map((todo) =>
-                todo.id === id? {...todo, isEditing: !todo.isEditing } : todo
-            )
-        );
-	}
+			todos.map((todo) =>
+				todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
+			)
+		);
+	};
+	const editTask = (task, id) => {
+		setTodos(
+			todos.map((todo) =>
+				todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
+			)
+		);
+	};
+
 	return (
 		<div className="flex flex-col gap-5">
 			<Form addTodo={addTodo} />
-			<TodoList todos={todos} toggleCompleted={toggleCompleted} deleteTodo={deleteTodo} editTodo={editTodo} />
+			<TodoList
+				todos={todos}
+				toggleCompleted={toggleCompleted}
+				deleteTodo={deleteTodo}
+				editTodo={editTodo}
+				editTask={editTask}
+			/>
 		</div>
 	);
 };

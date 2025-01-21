@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import check from "/assets/icon-check.svg";
 const EditTodoForm = ({editTodo, task}) => {
-	const [todo, setTodo] = useState('')
+	const [todo, setTodo] = useState(task.task)
 	const handleSubmit = (e) => {
         e.preventDefault()
         editTodo(todo, task.id)
@@ -28,4 +27,4 @@ const EditTodoForm = ({editTodo, task}) => {
 	);
 };
 
-export default Form;
+export default EditTodoForm;
