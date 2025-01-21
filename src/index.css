@@ -27,3 +27,11 @@
 .active-btn {
 	@apply text-brightBlue;
 }
+
+.completedTask {
+	@apply text-darkerFC line-through
+}
+
+.completedTaskTick {
+	@apply bg-gradient-checklist text-white
+}
