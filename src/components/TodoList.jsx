@@ -2,7 +2,7 @@ import React from "react";
 import Todo from "./Todo";
 import Edit from "./Edit";
 import EditTodoForm from "./EditTodoForm";
-const TodoList = ({ todos, toggleCompleted, deleteTodo, editTodo, editTask }) => {
+const TodoList = ({ todos, toggleCompleted, deleteTodo, editTodo, editTask, deleteAllTodos }) => {
 	return (
 		<div className="bg-bg2 rounded-md flex flex-col shadow-2xl min-h-[300px] max-h-[500px] sm:max-h-[0]">
 			<div className="h-full w-full overflow-scroll sm:overflow-hidden">
@@ -20,7 +20,7 @@ const TodoList = ({ todos, toggleCompleted, deleteTodo, editTodo, editTask }) =>
 					)
 				)}
 			</div>
-			<Edit />
+			<Edit deleteAllTodos={deleteAllTodos}/>
 		</div>
 	);
 };

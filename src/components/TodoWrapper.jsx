@@ -36,6 +36,9 @@ const TodoWrapper = () => {
 		);
 	};
 
+	const deleteAllTodos = () => {
+		setTodos([])
+	}
 	return (
 		<div className="flex flex-col gap-5">
 			<Form addTodo={addTodo} />
@@ -45,6 +48,7 @@ const TodoWrapper = () => {
 				deleteTodo={deleteTodo}
 				editTodo={editTodo}
 				editTask={editTask}
+				deleteAllTodos={deleteAllTodos}
 			/>
 		</div>
 	);
