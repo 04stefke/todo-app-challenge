@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Form from "./Form";
 import TodoList from "./TodoList";
-import {v4 as uuidv4} from 'uuid'
+import { v4 as uuidv4 } from "uuid";
+uuidv4();
 const TodoWrapper = () => {
 	const [todos, setTodos] = useState([]);
 	const addTodo = (todo) => {
