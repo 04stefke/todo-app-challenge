@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 uuidv4();
 const TodoWrapper = () => {
 	const [todos, setTodos] = useState([]);
+	const [filter, setFilter] = useState("all");
 	const addTodo = (todo) => {
 		if (todo.trim() === "") return;
 		setTodos([
@@ -39,12 +40,26 @@ const TodoWrapper = () => {
 	};
 
 	const deleteAllCompletedTodos = () => {
-		const activeTodos = todos.filter((todo) => !todo.completed)
+		const activeTodos = todos.filter((todo) => !todo.completed);
 		setTodos(activeTodos);
 	};
 
 	const getTotalTasks = () => {
 		return todos.length;
+	};
+
+	const filteredTodos = () => {
+		if (filter === "active") {
+			return todos.filter((todo) => !todo.completed);
+		} else if (filter === "completed") {
+			return todos.filter((todo) => todo.completed);
+		} else {
+			return todos;
+		}
+	};
+
+	const handleFilterChange = (newFilter) => {
+		setFilter(newFilter);
 	};
 
 	return (
@@ -58,6 +73,9 @@ const TodoWrapper = () => {
 				editTask={editTask}
 				deleteAllCompletedTodos={deleteAllCompletedTodos}
 				getTotalTasks={getTotalTasks}
+				handleFilterChange={handleFilterChange}
+				filteredTodos={filteredTodos}
+				filter={filter}
 			/>
 		</div>
 	);
