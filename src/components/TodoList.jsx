@@ -8,7 +8,7 @@ const TodoList = ({
 	deleteTodo,
 	editTodo,
 	editTask,
-	deleteAllTodos,
+	deleteAllCompletedTodos,
 	getTotalTasks,
 }) => {
 	return (
@@ -29,7 +29,7 @@ const TodoList = ({
 					)
 				)}
 			</div>
-			<Edit deleteAllTodos={deleteAllTodos} getTotalTasks={getTotalTasks}/>
+			<Edit deleteAllCompletedTodos={deleteAllCompletedTodos} getTotalTasks={getTotalTasks}/>
 		</div>
 	);
 };

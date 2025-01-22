@@ -38,8 +38,9 @@ const TodoWrapper = () => {
 		);
 	};
 
-	const deleteAllTodos = () => {
-		setTodos([]);
+	const deleteAllCompletedTodos = () => {
+		const activeTodos = todos.filter((todo) => !todo.completed)
+		setTodos(activeTodos);
 	};
 
 	const getTotalTasks = () => {
@@ -55,7 +56,7 @@ const TodoWrapper = () => {
 				deleteTodo={deleteTodo}
 				editTodo={editTodo}
 				editTask={editTask}
-				deleteAllTodos={deleteAllTodos}
+				deleteAllCompletedTodos={deleteAllCompletedTodos}
 				getTotalTasks={getTotalTasks}
 			/>
 		</div>
