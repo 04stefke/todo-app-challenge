@@ -14,8 +14,8 @@ const TodoList = ({
 	handleFilterChange
 }) => {
 	return (
-		<div className="bg-bg2 rounded-md flex flex-col shadow-2xl min-h-[300px] max-h-[500px] sm:max-h-[0]">
-			<div className="h-full w-full overflow-scroll sm:overflow-hidden">
+		<div className="bg-bg2 rounded-md flex flex-col shadow-2xl min-h-[350px] max-h-[400px] sm:max-h-0">
+			<div className="h-full w-full overflow-auto ">
 				{filteredTodos().map((todo, index) =>
 					todo.isEditing ? (
 						<EditTodoForm editTodo={editTask} task={todo} key={index} />

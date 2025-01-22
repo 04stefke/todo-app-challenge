@@ -14,8 +14,8 @@ function App() {
 	
 	return (
 		<section className="min-h-screen  bg-bg font-josefin">
-			<main className="bg-dark-image h-[300px]  flex flex-col items-center  ">
-				<div className="xl:w-1/3 sm:min-w-[500px]  min-w-[200px] max-w-[250px] sm:max-w-[0]  flex flex-col gap-10 relative top-[100px]">
+			<main className="bg-dark-image h-[150px] md:h-[300px]  flex flex-col items-center  ">
+				<div className="xl:w-1/3 sm:min-w-[500px]  min-w-[200px] max-w-[250px] sm:max-w-[0]  flex flex-col gap-10 relative top-[10px] md:top-[100px]">
 					<div className="flex items-center justify-between w-full">
 						<h1 className="text-fontColor font-bold text-4xl">T O D O</h1>
 						<i

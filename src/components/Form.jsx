@@ -8,7 +8,7 @@ const Form = ({addTodo}) => {
         setTodo('')
     }
 	return (
-		<form className="w-full flex items-center  bg-bg2 rounded-md" onSubmit={handleSubmit}>
+		<form className="shadow-2xl w-full flex items-center  bg-bg2 rounded-md" onSubmit={handleSubmit}>
 			<div className="w-full bg-transparent flex items-center px-2 ">
 				<input
 					type="text"
