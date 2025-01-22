@@ -2,6 +2,7 @@ import React from "react";
 import Todo from "./Todo";
 import Edit from "./Edit";
 import EditTodoForm from "./EditTodoForm";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 const TodoList = ({
 	filteredTodos,
 	toggleCompleted,
@@ -11,7 +12,8 @@ const TodoList = ({
 	deleteAllCompletedTodos,
 	getTotalTasks,
 	filter,
-	handleFilterChange
+	handleFilterChange,
+	setTodos
 }) => {
 	return (
 		<div className="bg-bg2 rounded-md flex flex-col shadow-2xl min-h-[350px] max-h-[400px] sm:max-h-0">
