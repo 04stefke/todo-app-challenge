@@ -77,6 +77,7 @@ const TodoWrapper = () => {
 				filteredTodos={filteredTodos}
 				filter={filter}
 			/>
+			<p className="self-center mt-20 cursor-default text-darkerFC">Drag and drop to reorder list</p>
 		</div>
 	);
 };
