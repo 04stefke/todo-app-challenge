@@ -2,7 +2,6 @@ import React from "react";
 import Todo from "./Todo";
 import Edit from "./Edit";
 import EditTodoForm from "./EditTodoForm";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 const TodoList = ({
 	filteredTodos,
 	toggleCompleted,
@@ -13,27 +12,40 @@ const TodoList = ({
 	getTotalTasks,
 	filter,
 	handleFilterChange,
-	setTodos
+	setTodos,
 }) => {
 	return (
 		<div className="bg-bg2 rounded-md flex flex-col shadow-2xl min-h-[350px] max-h-[400px] sm:max-h-0">
 			<div className="h-full w-full overflow-auto scrollbar-thin  scrollbar-thumb-darkerFC scrollbar-track-transparent ">
-				{filteredTodos().map((todo, index) =>
-					todo.isEditing ? (
-						<EditTodoForm editTodo={editTask} task={todo} key={index} />
-					) : (
-						<Todo
-							task={todo}
-							key={index}
-							toggleCompleted={toggleCompleted}
-							deleteTodo={deleteTodo}
-							editTodo={editTodo}
-							
-						/>
-					)
+				{filteredTodos().length === 0 ? (
+					<div className="text-darkerFC flex items-center justify-center h-full">
+						What do you want to get done today?
+					</div>
+				) : (
+					<>
+						{filteredTodos().map((todo, index) =>
+							todo.isEditing ? (
+								<EditTodoForm editTodo={editTask} task={todo} key={index} />
+							) : (
+								<Todo
+									task={todo}
+									key={index}
+									toggleCompleted={toggleCompleted}
+									deleteTodo={deleteTodo}
+									editTodo={editTodo}
+								/>
+							)
+						)}
+					</>
 				)}
 			</div>
-			<Edit deleteAllCompletedTodos={deleteAllCompletedTodos} getTotalTasks={getTotalTasks} filter={filter} handleFilterChange={handleFilterChange}/>
+
+			<Edit
+				deleteAllCompletedTodos={deleteAllCompletedTodos}
+				getTotalTasks={getTotalTasks}
+				filter={filter}
+				handleFilterChange={handleFilterChange}
+			/>
 		</div>
 	);
 };
