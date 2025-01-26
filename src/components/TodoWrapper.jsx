@@ -1,11 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "./Form";
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from "uuid";
+import { collection, onSnapshot, query } from "firebase/firestore";
+import { db } from "../firebase/Firebase";
 uuidv4();
 const TodoWrapper = () => {
 	const [todos, setTodos] = useState([]);
 	const [filter, setFilter] = useState("all");
+
+	// create todos
+	// read todos
+	useEffect(() => {
+		const q = query(collection(db, "todos"));
+		const unsubscribe = onSnapshot(q, (querySnapshot) => {
+			let todosArray = [];
+			querySnapshot.forEach((doc) => {
+				todosArray.push({ ...doc.data(), id: doc.id });
+			});
+			setTodos(todosArray);
+		});
+		return () => unsubscribe();
+	}, []);
+
+	// update todos
+	// delete todos
 	const addTodo = (todo) => {
 		if (todo.trim() === "") return;
 		setTodos([
@@ -78,7 +97,9 @@ const TodoWrapper = () => {
 				filter={filter}
 				setTodos={setTodos}
 			/>
-			<p className="self-center mt-20 cursor-default text-darkerFC">Drag and drop to reorder list</p>
+			<p className="self-center mt-20 cursor-default text-darkerFC">
+				Drag and drop to reorder list
+			</p>
 		</div>
 	);
 };
