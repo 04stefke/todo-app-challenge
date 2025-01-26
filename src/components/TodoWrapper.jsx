@@ -2,7 +2,14 @@ import React, { useState, useEffect } from "react";
 import Form from "./Form";
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from "uuid";
-import { collection, doc, onSnapshot, query, updateDoc } from "firebase/firestore";
+import {
+	addDoc,
+	collection,
+	doc,
+	onSnapshot,
+	query,
+	updateDoc,
+} from "firebase/firestore";
 import { db } from "../firebase/Firebase";
 uuidv4();
 const TodoWrapper = () => {
@@ -23,20 +30,22 @@ const TodoWrapper = () => {
 		return () => unsubscribe();
 	}, []);
 
-	// update todos
 	// delete todos
-	const addTodo = (todo) => {
+	const addTodo = async (todo) => {
 		if (todo.trim() === "") return;
-		setTodos([
-			...todos,
-			{ id: uuidv4(), task: todo, completed: false, isEditing: false },
-		]);
-	};
-	const toggleCompleted = async (todo) => {
 
-		await updateDoc(doc(db, 'todos', todo.id), {
-			completed: !todo.completed
-		})
+		await addDoc(collection(db, "todos"), {
+			task: todo,
+			completed: false,
+			isEditing: false,
+		});
+	};
+
+	// update todos
+	const toggleCompleted = async (todo) => {
+		await updateDoc(doc(db, "todos", todo.id), {
+			completed: !todo.completed,
+		});
 	};
 	const deleteTodo = (id) => {
 		setTodos(todos.filter((todo) => todo.id !== id));
