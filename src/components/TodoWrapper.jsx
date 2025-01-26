@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Form from "./Form";
 import TodoList from "./TodoList";
-import { v4 as uuidv4 } from "uuid";
 import {
 	addDoc,
 	collection,
@@ -12,7 +11,6 @@ import {
 	updateDoc,
 } from "firebase/firestore";
 import { db } from "../firebase/Firebase";
-uuidv4();
 const TodoWrapper = () => {
 	const [todos, setTodos] = useState([]);
 	const [filter, setFilter] = useState("all");
