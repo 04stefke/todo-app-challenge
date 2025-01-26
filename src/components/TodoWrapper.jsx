@@ -7,7 +7,9 @@ import {
 	deleteDoc,
 	doc,
 	onSnapshot,
+	orderBy,
 	query,
+	serverTimestamp,
 	updateDoc,
 } from "firebase/firestore";
 import { db } from "../firebase/Firebase";
@@ -17,7 +19,7 @@ const TodoWrapper = () => {
 
 	// reads todos
 	useEffect(() => {
-		const q = query(collection(db, "todos"));
+		const q = query(collection(db, "todos"), orderBy("createdAt", "desc"));
 		const unsubscribe = onSnapshot(q, (querySnapshot) => {
 			let todosArray = [];
 			querySnapshot.forEach((doc) => {
@@ -38,6 +40,7 @@ const TodoWrapper = () => {
 		await addDoc(collection(db, "todos"), {
 			task: todo,
 			completed: false,
+			createdAt: serverTimestamp(),
 		});
 	};
 
@@ -63,7 +66,7 @@ const TodoWrapper = () => {
 		);
 	};
 
-	// function for editing the task  
+	// function for editing the task
 	const editTask = async (task, id) => {
 		if (task.trim() === "") {
 			alert("Please enter the new task!");
@@ -86,7 +89,7 @@ const TodoWrapper = () => {
 		return todos.length;
 	};
 
-	// changes the shown tasks 
+	// changes the shown tasks
 	const filteredTodos = () => {
 		if (filter === "active") {
 			return todos.filter((todo) => !todo.completed);
