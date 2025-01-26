@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import {
 	addDoc,
 	collection,
+	deleteDoc,
 	doc,
 	onSnapshot,
 	query,
@@ -47,10 +48,11 @@ const TodoWrapper = () => {
 			completed: !todo.completed,
 		});
 	};
-	const deleteTodo = (id) => {
-		setTodos(todos.filter((todo) => todo.id !== id));
+	const deleteTodo = async(id) => {
+		await deleteDoc(doc(db, "todos", id));
 	};
 	const editTodo = (id) => {
+		
 		setTodos(
 			todos.map((todo) =>
 				todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
