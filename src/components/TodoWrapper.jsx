@@ -33,7 +33,10 @@ const TodoWrapper = () => {
 
 	// delete todos
 	const addTodo = async (todo) => {
-		if (todo.trim() === "") return;
+		if (todo.trim() === "") {
+			alert("Enter a task!");
+			return;
+		}
 
 		await addDoc(collection(db, "todos"), {
 			task: todo,
@@ -47,28 +50,30 @@ const TodoWrapper = () => {
 			completed: !todo.completed,
 		});
 	};
-	const deleteTodo = async(id) => {
+	const deleteTodo = async (id) => {
 		await deleteDoc(doc(db, "todos", id));
 	};
 	const editTodo = (id) => {
-
 		setTodos(
 			todos.map((todo) =>
 				todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
 			)
 		);
 	};
-	const editTask = async(task, id) => {
-		if (task.trim() === "") return;
+	const editTask = async (task, id) => {
+		if (task.trim() === "") {
+			alert("Please enter the new task!");
+			return;
+		}
 		await updateDoc(doc(db, "todos", id), {
-            task,
-        });
+			task,
+		});
 	};
 
 	const deleteAllCompletedTodos = () => {
 		todos.forEach(async (todo) => {
-            if (todo.completed) await deleteDoc(doc(db, "todos", todo.id));
-        });
+			if (todo.completed) await deleteDoc(doc(db, "todos", todo.id));
+		});
 	};
 
 	const getTotalTasks = () => {
