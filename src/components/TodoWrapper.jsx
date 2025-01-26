@@ -38,7 +38,6 @@ const TodoWrapper = () => {
 		await addDoc(collection(db, "todos"), {
 			task: todo,
 			completed: false,
-			isEditing: false,
 		});
 	};
 
@@ -52,25 +51,24 @@ const TodoWrapper = () => {
 		await deleteDoc(doc(db, "todos", id));
 	};
 	const editTodo = (id) => {
-		
+
 		setTodos(
 			todos.map((todo) =>
 				todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
 			)
 		);
 	};
-	const editTask = (task, id) => {
+	const editTask = async(task, id) => {
 		if (task.trim() === "") return;
-		setTodos(
-			todos.map((todo) =>
-				todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
-			)
-		);
+		await updateDoc(doc(db, "todos", id), {
+            task,
+        });
 	};
 
 	const deleteAllCompletedTodos = () => {
-		const activeTodos = todos.filter((todo) => !todo.completed);
-		setTodos(activeTodos);
+		todos.forEach(async (todo) => {
+            if (todo.completed) await deleteDoc(doc(db, "todos", todo.id));
+        });
 	};
 
 	const getTotalTasks = () => {
