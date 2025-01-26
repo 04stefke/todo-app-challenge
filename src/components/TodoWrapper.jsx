@@ -17,8 +17,7 @@ const TodoWrapper = () => {
 	const [todos, setTodos] = useState([]);
 	const [filter, setFilter] = useState("all");
 
-	// create todos
-	// read todos
+	// reads todos
 	useEffect(() => {
 		const q = query(collection(db, "todos"));
 		const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -31,7 +30,7 @@ const TodoWrapper = () => {
 		return () => unsubscribe();
 	}, []);
 
-	// delete todos
+	// Creates and adds todos to the store
 	const addTodo = async (todo) => {
 		if (todo.trim() === "") {
 			alert("Enter a task!");
@@ -44,15 +43,20 @@ const TodoWrapper = () => {
 		});
 	};
 
-	// update todos
+	// UPDATE FUNCTIONS
+	// toggles completed state for selected tasks
 	const toggleCompleted = async (todo) => {
 		await updateDoc(doc(db, "todos", todo.id), {
 			completed: !todo.completed,
 		});
 	};
+
+	// deletes todos selected
 	const deleteTodo = async (id) => {
 		await deleteDoc(doc(db, "todos", id));
 	};
+
+	// function that changes the status of isEditing for todos
 	const editTodo = (id) => {
 		setTodos(
 			todos.map((todo) =>
@@ -60,6 +64,8 @@ const TodoWrapper = () => {
 			)
 		);
 	};
+
+	// function for editing the task  
 	const editTask = async (task, id) => {
 		if (task.trim() === "") {
 			alert("Please enter the new task!");
@@ -70,16 +76,19 @@ const TodoWrapper = () => {
 		});
 	};
 
+	// function to delete all completed tasks
 	const deleteAllCompletedTodos = () => {
 		todos.forEach(async (todo) => {
 			if (todo.completed) await deleteDoc(doc(db, "todos", todo.id));
 		});
 	};
 
+	// returns the number of todos
 	const getTotalTasks = () => {
 		return todos.length;
 	};
 
+	// changes the shown tasks 
 	const filteredTodos = () => {
 		if (filter === "active") {
 			return todos.filter((todo) => !todo.completed);
