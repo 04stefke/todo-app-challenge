@@ -6,11 +6,9 @@ export default {
 	theme: {
 		extend: {
 			backgroundImage: {
-				"light-image": "url('/assets/backgrounds/bg-desktop-light.jpg')",
-				"dark-image": "url('/assets/backgrounds/bg-desktop-dark.jpg')",
+				bgImg: "var(--bgImg)",
 				"gradient-checklist":
 					"linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%))",
-				"bright-blue": "hsl(220, 98%, 61%)",
 			},
 			borderColor: {
 				"gradient-checklist":
