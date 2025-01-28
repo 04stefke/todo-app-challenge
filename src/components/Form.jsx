@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import check from "/assets/icon-check.svg";
+
 const Form = ({addTodo}) => {
 	const [todo, setTodo] = useState('')
 	const handleSubmit = (e) => {
