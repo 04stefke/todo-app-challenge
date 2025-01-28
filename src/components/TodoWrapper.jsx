@@ -72,9 +72,24 @@ const TodoWrapper = () => {
 			alert("Please enter the new task!");
 			return;
 		}
+		if (task === todos.find((todo) => todo.id === id).originalTask) {
+			// If the task hasn't been changed, do nothing and exit
+			setTodos(
+				todos.map((todo) =>
+					todo.id === id ? { ...todo, isEditing: false } : todo
+				)
+			);
+			return;
+		}
 		await updateDoc(doc(db, "todos", id), {
 			task,
 		});
+		// After the task is updated, set editing to false
+		setTodos(
+			todos.map((todo) =>
+				todo.id === id ? { ...todo, isEditing: false } : todo
+			)
+		);
 	};
 
 	// function to delete all completed tasks
