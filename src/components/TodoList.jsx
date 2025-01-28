@@ -15,7 +15,7 @@ const TodoList = ({
 	setTodos,
 }) => {
 	return (
-		<div className="bg-bg2 rounded-md flex flex-col shadow-2xl min-h-[400px] max-h-[500px] sm:max-h-0">
+		<div className="bg-bg2 rounded-md flex flex-col shadow-2xl min-h-[400px] max-h-[250px] sm:max-h-0 ">
 			<div className="h-full w-full overflow-auto scrollbar-thin  scrollbar-thumb-darkerFC scrollbar-track-transparent ">
 				{filteredTodos().length === 0 ? (
 					<div className="text-darkerFC flex items-center justify-center h-full">

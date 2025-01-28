@@ -37,3 +37,12 @@
 .completedTaskTick {
 	@apply bg-gradient-checklist text-white
 }
+
+@media (max-width: 480px) {
+    .dark {
+        --bgImg: url('/assets/backgrounds/bg-mobile-dark.jpg');
+    }
+	.light {
+        --bgImg: url('/assets/backgrounds/bg-mobile-light.jpg');
+    }
+}
