@@ -120,9 +120,6 @@ const TodoWrapper = () => {
 				filter={filter}
 				setTodos={setTodos}
 			/>
-			<p className="self-center mt-20 cursor-default text-darkerFC">
-				Drag and drop to reorder list
-			</p>
 		</div>
 	);
 };
